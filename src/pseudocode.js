@@ -22,5 +22,5 @@
 // Stretch goals:
   // Populating the select options with the API data instead of hardcoding
   // Working in other things like subraces for each class 
-  // Updating the page with an image for each race, which I would take from https://dndraces.com/
+  // Updating the page with an image for each race, which I would take from https://www.dndbeyond.com/races
   // Major stretch but it'd be cool to add firebase so that people could store their characters for others to see
