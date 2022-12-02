@@ -3,7 +3,8 @@ import axios from 'axios';
 
 
 const Form = (props) => {
-    const [userInput, setUserInput] = useState('')
+
+    // Setting an empty array into state for the options in the select dropdown
     const [selectOptions, setSelectOptions] = useState([]);
 
     // FIrst API call, on Form component mount, to get the array of races that will populate the Select element in the JSX
@@ -21,29 +22,24 @@ const Form = (props) => {
     // Second API call that occurs when the userInput state changes (ie when the user selects an option on the drop down)
     useEffect(() => {
         axios({
-            url: `https://www.dnd5eapi.co/api/races/${userInput}`,
+            url: `https://www.dnd5eapi.co/api/races/${props.userChoice}`,
             method: "GET",
             dataResponse: "json"
         }).then((response) => {
             // Passes the array response as an argument to the updateDetails function
             updateDetails(response.data);
         })
-    }, [userInput])
+    }, [props.userChoice])
     
     // Function that passes data from the API response back up to App.js with props
-    const updateDetails = (racesArray) => {
-        console.log(racesArray);
-        props.setName(racesArray.name);
-        props.setAge(racesArray.age);
-        props.setAlignment(racesArray.alignment);
-        props.setSizeDesc(racesArray.size_description);
-        props.setLangDesc(racesArray.language_desc);
-    }
-
-    const getUserChoice = (e) => {
-        console.log(e.target.value);
-        setUserInput(e.target.value);
-        props.setImgSource(`./assets/${e.target.value}.png`)
+    const updateDetails = (raceData) => {
+        console.log(raceData);
+        props.setName(raceData.name);
+        props.setAge(raceData.age);
+        props.setAlignment(raceData.alignment);
+        props.setSizeDesc(raceData.size_description);
+        props.setLangDesc(raceData.language_desc);
+        props.setUserChoice(raceData.index)
     }
 
     return (
@@ -52,13 +48,13 @@ const Form = (props) => {
             <select
                 name="form-select"
                 id="form-select"
-                onChange={getUserChoice}
-                value={userInput}
+                onChange={(e) => {props.setUserChoice(e.target.value)}}
+                value={props.userChoice}
             >   
                 <option value="" disabled>Choose one:</option>
-                {selectOptions.map((option, index) => {
+                {selectOptions.map((option) => {
                     return (
-                        <option value={option.index} key={index}>{option.name}</option>
+                        <option value={option.index} key={option.index}>{option.name}</option>
                     )
                 })}
             </select>
