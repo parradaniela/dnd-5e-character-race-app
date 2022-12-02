@@ -4,58 +4,57 @@ import axios from 'axios';
 
 const Form = (props) => {
     const [userInput, setUserInput] = useState('')
-    const updateDetails = (bigObj) => {
-        // console.log(bigObj);
-        props.setRaceName(bigObj.name)
-        props.setRaceAge(bigObj.age)
-        props.setRaceAlignment(bigObj.alignment)
-    }
+    const [selectOptions, setSelectOptions] = useState([]);
     
-    const handleChange = (e) => {
-        // console.log(e);
-        setUserInput(e.target.value);
-    }
-
+    // FIrst API call, on Form component mount, to get the array of races that will populate the Select element in the JSX
     useEffect(() => {
         axios({
-          url: "https://www.dnd5eapi.co/api/races/",
-          method: "GET",
-          dataResponse: "json"
+            url: "https://www.dnd5eapi.co/api/races/",
+            method: "GET",
+            dataResponse: "json"
         }).then((response) => {
-          console.log(response.data.results);
+            // Sets the state of selectOptions as the array received from the API 
+            setSelectOptions(response.data.results);
         });
-      }, [])
+    }, [])
 
+    // Second API call that occurs when the userInput state changes (ie when the user selects an option on the drop down)
     useEffect(() => {
         axios({
-          url: `https://www.dnd5eapi.co/api/races/${userInput}`,
-          method: "GET",
-          dataResponse: "json"
+            url: `https://www.dnd5eapi.co/api/races/${userInput}`,
+            method: "GET",
+            dataResponse: "json"
         }).then((response) => {
+            // Passes the array response as an argument to the updateDetails function
             updateDetails(response.data);
         })
-      }, [userInput])
+    }, [userInput])
     
+    // Function that passes data from the API response back up to App.js with props
+    const updateDetails = (racesArray) => {
+        console.log(racesArray);
+        props.setName(racesArray.name);
+        props.setAge(racesArray.age);
+        props.setAlignment(racesArray.alignment);
+        props.setSizeDesc(racesArray.size_description);
+        props.setLangDesc(racesArray.language_desc);
+    }
+
     return (
-        // <form onSubmit={props.handleSubmit}>
         <form>
             <label htmlFor="racePick">Choose your character's race</label>
             <select
                 name="racePick"
                 id="racePick"
-                onChange={handleChange}
+                onChange={(e) => {setUserInput(e.target.value)}}
                 value={userInput}
-            >
+            >   
                 <option value="" disabled>Choose one:</option>
-                <option value="dragonborn">Dragonborn</option>
-                <option value="dwarf">Dwarf</option>
-                <option value="elf">Elf</option>
-                <option value="gnome">Gnome</option>
-                <option value="half-elf">Half-Elf</option>
-                <option value="half-orc">Half-Orc</option>
-                <option value="halfling">Halfling</option>
-                <option value="human">Human</option>
-                <option value="tiefling">Tiefling</option>
+                {selectOptions.map((option, index) => {
+                    return (
+                        <option value={option.index} key={index}>{option.name}</option>
+                    )
+                })}
             </select>
         </form>
     )
