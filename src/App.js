@@ -5,18 +5,9 @@ import Form from './Form.js';
 
 function App() {
 
-  const [userInput, setUserInput] = useState('')
-  console.log(userInput);
-
-  useEffect(() => {
-    axios({
-      url: "https://www.dnd5eapi.co/api/races/dragonborn",
-      method: "GET",
-      dataResponse: "json"
-    }).then((response) => {
-      console.log(response.data);
-    })
-  }, [])
+  const [raceAge, setRaceAge] = useState('');
+  const [raceName, setRaceName] = useState('');
+  const [raceAlignment, setRaceAlignment] = useState('');
 
   return (
     <div className="App">
@@ -24,9 +15,16 @@ function App() {
         <header>
           <h1>DnD 5e Character Race Information</h1>
           <Form
-            
+            setRaceName={setRaceName}
+            setRaceAge={setRaceAge}
+            setRaceAlignment={setRaceAlignment}
           />
         </header>
+        <main>
+          <p>Race Name: {raceName}</p>
+          <p>Race Age: {raceAge}</p>
+          <p>Race Alignment: {raceAlignment}</p>
+        </main>
       </div>
     </div>
   );
