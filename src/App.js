@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import axios from 'axios';  
 import './App.css';
 import Form from './Form.js';
 
@@ -13,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
+      <div className="wrapper flex-center">
         <header>
           <h1>DnD 5e Character Race Information</h1>
           <Form
@@ -25,11 +24,13 @@ function App() {
           />
         </header>
         <main>
-          <h2>{name}</h2>
-          <p>Age: {age}</p>
-          <p>Alignment: {alignment}</p>
-          <p>Size: {sizeDesc}</p>
-          <p>Language: {langDesc}</p>
+          <section className="results">
+            <h2>{name}</h2>
+            <p><span className='bold'>Age:</span> {age}</p>
+            <p><span className='bold'>Alignment:</span> {alignment}</p>
+            <p><span className='bold'>Size:</span> {sizeDesc}</p>
+            <p><span className='bold'>Language:</span> {langDesc}</p>
+          </section>
         </main>
       </div>
     </div>

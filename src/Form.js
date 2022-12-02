@@ -41,11 +41,11 @@ const Form = (props) => {
     }
 
     return (
-        <form>
-            <label htmlFor="racePick">Choose your character's race</label>
+        <form className='form'>
+            <label htmlFor="form-select">Choose your character's race</label>
             <select
-                name="racePick"
-                id="racePick"
+                name="form-select"
+                id="form-select"
                 onChange={(e) => {setUserInput(e.target.value)}}
                 value={userInput}
             >   

@@ -6,8 +6,63 @@ html { box-sizing: border-box;}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+html {
+  font-size: 125%;
+}
+
+body {
+  background-color: #EEE3CB;
+}
+
 .wrapper {
   max-width: 1440px;
   width: 80%;
   margin: 0 auto;
+}
+
+.flex-center {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #B7C4CF;
+}
+
+h1, h2, p, form, select, option, button {margin: 0; padding: 0}
+
+header {
+  width: inherit
+}
+
+h1 {
+  font-size: 2.2rem;
+  padding: 5%;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.form label {
+  margin-right: 20px;
+}
+
+.results {
+  padding: 0 5% 5%;
+}
+
+.results p:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.bold {
+  font-weight: 700;
 }
