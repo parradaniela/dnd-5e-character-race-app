@@ -5,7 +5,7 @@ import axios from 'axios';
 const Form = (props) => {
     const [userInput, setUserInput] = useState('')
     const [selectOptions, setSelectOptions] = useState([]);
-    
+
     // FIrst API call, on Form component mount, to get the array of races that will populate the Select element in the JSX
     useEffect(() => {
         axios({
@@ -40,13 +40,19 @@ const Form = (props) => {
         props.setLangDesc(racesArray.language_desc);
     }
 
+    const getUserChoice = (e) => {
+        console.log(e.target.value);
+        setUserInput(e.target.value);
+        props.setImgSource(`./assets/${e.target.value}.png`)
+    }
+
     return (
         <form className='form'>
             <label htmlFor="form-select">Choose your character's race</label>
             <select
                 name="form-select"
                 id="form-select"
-                onChange={(e) => {setUserInput(e.target.value)}}
+                onChange={getUserChoice}
                 value={userInput}
             >   
                 <option value="" disabled>Choose one:</option>

@@ -37,6 +37,7 @@ header {
 h1 {
   font-size: 2.2rem;
   padding: 5%;
+  text-align: center;
 }
 
 h2 {
@@ -48,7 +49,7 @@ h2 {
 .form {
   display: flex;
   justify-content: center;
-  padding: 5%;
+  padding: 0 5% 5%;
 }
 
 .form label {

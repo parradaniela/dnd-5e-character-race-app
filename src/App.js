@@ -9,6 +9,7 @@ function App() {
   const [alignment, setAlignment] = useState('');
   const [sizeDesc, setSizeDesc] = useState('');
   const [langDesc, setLangDesc] = useState('')
+  const [imgSource, setImgSource] = useState('');
 
   return (
     <div className="App">
@@ -21,11 +22,13 @@ function App() {
             setAlignment={setAlignment}
             setSizeDesc={setSizeDesc}
             setLangDesc={setLangDesc}
+            setImgSource={setImgSource}
           />
         </header>
         <main>
           <section className="results">
             <h2>{name}</h2>
+            <img src={require('./assets/dragonborn.png')} alt="alt text" />
             <p><span className='bold'>Age:</span> {age}</p>
             <p><span className='bold'>Alignment:</span> {alignment}</p>
             <p><span className='bold'>Size:</span> {sizeDesc}</p>
