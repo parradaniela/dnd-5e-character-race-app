@@ -3,7 +3,8 @@ import axios from 'axios';
 
 
 const Form = (props) => {
-
+    // Destructuring props
+    const { userChoice, setUserChoice, setName, setAge, setAlignment, setSizeDesc, setLangDesc, setTraitsArray } = props;
     // Setting an empty array into state for the options in the select dropdown
     const [selectOptions, setSelectOptions] = useState([]);
 
@@ -22,24 +23,25 @@ const Form = (props) => {
     // Second API call that occurs when the userInput state changes (ie when the user selects an option on the drop down)
     useEffect(() => {
         axios({
-            url: `https://www.dnd5eapi.co/api/races/${props.userChoice}`,
+            url: `https://www.dnd5eapi.co/api/races/${userChoice}`,
             method: "GET",
             dataResponse: "json"
         }).then((response) => {
             // Passes the array response as an argument to the updateDetails function
             updateDetails(response.data);
         })
-    }, [props.userChoice])
+    }, [userChoice])
     
     // Function that passes data from the API response back up to App.js with props
     const updateDetails = (raceData) => {
         console.log(raceData);
-        props.setName(raceData.name);
-        props.setAge(raceData.age);
-        props.setAlignment(raceData.alignment);
-        props.setSizeDesc(raceData.size_description);
-        props.setLangDesc(raceData.language_desc);
-        props.setUserChoice(raceData.index)
+        setName(raceData.name);
+        setAge(raceData.age);
+        setAlignment(raceData.alignment);
+        setSizeDesc(raceData.size_description);
+        setLangDesc(raceData.language_desc);
+        setUserChoice(raceData.index);
+        setTraitsArray(raceData.traits);
     }
 
     return (
@@ -48,8 +50,8 @@ const Form = (props) => {
             <select
                 name="form-select"
                 id="form-select"
-                onChange={(e) => {props.setUserChoice(e.target.value)}}
-                value={props.userChoice}
+                onChange={(e) => {setUserChoice(e.target.value)}}
+                value={userChoice}
             >   
                 <option value="" disabled>Choose one:</option>
                 {selectOptions.map((option) => {

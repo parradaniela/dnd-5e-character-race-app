@@ -3,6 +3,7 @@ import './App.css';
 import Form from './Form.js';
 import Image from './Image.js'
 import Results from './Results.js';
+import Traits from './Traits.js';
 import Footer from './Footer.js';
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   const [alignment, setAlignment] = useState('');
   const [sizeDesc, setSizeDesc] = useState('');
   const [langDesc, setLangDesc] = useState('')
+  // Create states for the data populating the traits section
+  const [traitsArray, setTraitsArray] = useState([]);
   
 
   return (
@@ -32,6 +35,7 @@ function App() {
             setAlignment={setAlignment}
             setSizeDesc={setSizeDesc}
             setLangDesc={setLangDesc}
+            setTraitsArray={setTraitsArray}
           />
         </header>
         <main>
@@ -46,6 +50,7 @@ function App() {
               sizeDesc={sizeDesc}
               langDesc={langDesc}
             />
+            {/* <Traits traitsArray={traitsArray} /> */}
           </section>
         </main>
       </div>

@@ -1,4 +1,6 @@
 const Results = (props) => {
+    // Deconstructing props
+    const { age, alignment, sizeDesc, langDesc } = props;
     return (
         <ul>
             <li>
@@ -6,7 +8,7 @@ const Results = (props) => {
                     <p>Age:</p>
                 </div>
                 <div className="list-details">
-                    <p>{props.age}</p>
+                    <p>{age}</p>
                 </div>
             </li>
             <li>
@@ -14,7 +16,7 @@ const Results = (props) => {
                     <p>Alignment:</p>
                 </div>
                 <div className="list-details">
-                    <p>{props.alignment}</p>
+                    <p>{alignment}</p>
                 </div>
             </li>
             <li>
@@ -22,7 +24,7 @@ const Results = (props) => {
                     <p>Size:</p>
                 </div>
                 <div className="list-details">
-                    <p>{props.sizeDesc}</p>
+                    <p>{sizeDesc}</p>
                 </div>
             </li>
             <li>
@@ -30,7 +32,7 @@ const Results = (props) => {
                     <p>Language:</p>
                 </div>
                 <div className="list-details">
-                    <p>{props.langDesc}</p>
+                    <p>{langDesc}</p>
                 </div>
             </li>
         </ul>
