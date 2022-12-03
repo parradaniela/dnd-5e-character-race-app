@@ -34,11 +34,10 @@ function App() {
         </header>
         <main>
           <section className="results">
-            <h2>{name}</h2>
-            <Image
-              // User choice passed to Image.js
-              userChoice={userChoice}
-            />
+            <div className="results-top">
+              <h2>{name}</h2>
+              <Image userChoice={userChoice} />
+            </div>
             <ul>
               <li>
                 <div className="list-heading">
