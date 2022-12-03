@@ -3,7 +3,7 @@ import './App.css';
 import Form from './Form.js';
 import Image from './Image.js'
 import Results from './Results.js';
-import Traits from './Traits.js';
+// import Traits from './Traits.js';
 import Footer from './Footer.js';
 
 function App() {
