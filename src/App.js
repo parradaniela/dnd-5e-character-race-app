@@ -39,10 +39,40 @@ function App() {
               // User choice passed to Image.js
               userChoice={userChoice}
             />
-            <p><span className='bold'>Age:</span> {age}</p>
-            <p><span className='bold'>Alignment:</span> {alignment}</p>
-            <p><span className='bold'>Size:</span> {sizeDesc}</p>
-            <p><span className='bold'>Language:</span> {langDesc}</p>
+            <ul>
+              <li>
+                <div className="list-heading">
+                  <p>Age:</p>
+                </div>
+                <div className="list-details">
+                  <p>{age}</p>
+                </div>
+              </li>
+              <li>
+                <div className="list-heading">
+                  <p>Alignment:</p>
+                </div>
+                <div className="list-details">
+                  <p>{alignment}</p>
+                </div>
+              </li>
+              <li>
+                <div className="list-heading">
+                  <p>Size:</p>
+                </div>
+                <div className="list-details">
+                  <p>{sizeDesc}</p>
+                </div>
+              </li>
+              <li>
+                <div className="list-heading">
+                  <p>Language:</p>
+                </div>
+                <div className="list-details">
+                  <p>{langDesc}</p>
+                </div>
+              </li>
+            </ul>
           </section>
         </main>
       </div>
