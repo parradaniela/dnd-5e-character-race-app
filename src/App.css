@@ -13,17 +13,31 @@ html { box-sizing: border-box;}
 html {
   font-size: 125%;
 }
-
+/* Stripping styles */
 h1, h2, p, form, select, option, button {margin: 0; padding: 0}
-
+/* Body styles */
 body {
-  background-color: #EEE3CB;
+  background: url('./lukasz-szmigiel-jFCViYFYcus-unsplash.jpg') no-repeat fixed center;
 }
 
 header {
   width: 100%;
 }
 
+.wrapper {
+  max-width: 1440px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex-center {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #C9AB6A;
+}
+/* Typography and General Styles */
 h1 {
   font-family: 'Berkshire Swash', cursive;
   font-size: 4rem;
@@ -59,21 +73,6 @@ img {
   max-width: 100%;
   object-fit: cover;
 }
-
-.wrapper {
-  max-width: 1440px;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.flex-center {
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #B7C4CF;
-}
-
 /* Form component */
 .form {
   display: flex;
@@ -91,13 +90,11 @@ select {
   text-align: center;
   border: none;
 }
-
 /* Image component */
 .race-image {
   width: 50%;
   margin: 0 auto;
 }
-
 /* Results section */
 .results {
   padding: 0 5% 5%;
