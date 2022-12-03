@@ -14,7 +14,17 @@ html {
   font-size: 125%;
 }
 /* Stripping styles */
-h1, h2, p, form, select, option, button {margin: 0; padding: 0}
+h1, h2, p, form, select, option, button {
+  margin: 0; 
+  padding: 0;
+  transition: all .3s;
+}
+
+a {
+  text-decoration: none; 
+  color: #8AA134;
+  transition: all .3s;
+}
 /* Body styles */
 body {
   background: url('./lukasz-szmigiel-jFCViYFYcus-unsplash.jpg') no-repeat fixed center;
@@ -35,7 +45,13 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #C9AB6A;
+  background-color: rgba(201, 171, 106, .8);
+  box-shadow: 
+    rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 /* Typography and General Styles */
 h1 {
@@ -67,6 +83,10 @@ label {
 p {
   font-family:'Comfortaa', cursive;
   font-size: 1.2rem;
+}
+
+footer p {
+  font-size: 0.9rem;
 }
 
 img {
@@ -125,4 +145,20 @@ select {
 
 .list-details {
   flex-basis: 75%;
+}
+/* Footer */
+footer {
+  padding: 10px;
+  background-color: #30322B;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+a:hover, 
+a:focus {
+  color: #c9ab6a;
 }

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import Form from './Form.js';
 import Image from './Image.js'
+import Results from './Results.js';
+import Footer from './Footer.js';
 
 function App() {
 
@@ -38,43 +40,16 @@ function App() {
               <h2>{name}</h2>
               <Image userChoice={userChoice} />
             </div>
-            <ul>
-              <li>
-                <div className="list-heading">
-                  <p>Age:</p>
-                </div>
-                <div className="list-details">
-                  <p>{age}</p>
-                </div>
-              </li>
-              <li>
-                <div className="list-heading">
-                  <p>Alignment:</p>
-                </div>
-                <div className="list-details">
-                  <p>{alignment}</p>
-                </div>
-              </li>
-              <li>
-                <div className="list-heading">
-                  <p>Size:</p>
-                </div>
-                <div className="list-details">
-                  <p>{sizeDesc}</p>
-                </div>
-              </li>
-              <li>
-                <div className="list-heading">
-                  <p>Language:</p>
-                </div>
-                <div className="list-details">
-                  <p>{langDesc}</p>
-                </div>
-              </li>
-            </ul>
+            <Results
+              age={age}
+              alignment={alignment}
+              sizeDesc={sizeDesc}
+              langDesc={langDesc}
+            />
           </section>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
