@@ -120,6 +120,11 @@ select {
 .results {
   padding: 0 5% 5%;
   display: flex;
+  flex-direction: column;
+}
+
+.results-main {
+  display: flex;
 }
 
 .results-top {

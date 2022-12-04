@@ -4,7 +4,9 @@ import axios from 'axios';
 
 const Form = (props) => {
     // Destructuring props
-    const { userChoice, setUserChoice, setName, setAge, setAlignment, setSizeDesc, setLangDesc, setTraitsArray } = props;
+    const { setName, setAge, setAlignment, setSizeDesc, setLangDesc, setRaceIndex, setTraitsArray } = props;
+    // Setting state for the user's choice from the dropdown
+    const [userChoice, setUserChoice] = useState('');
     // Setting an empty array into state for the options in the select dropdown
     const [selectOptions, setSelectOptions] = useState([]);
 
@@ -21,7 +23,8 @@ const Form = (props) => {
     }, [])
 
     // Second API call that occurs when the userInput state changes (ie when the user selects an option on the drop down)
-    useEffect(() => {
+    const callSpecificEndpoint = (event) => {
+        event.preventDefault();
         axios({
             url: `https://www.dnd5eapi.co/api/races/${userChoice}`,
             method: "GET",
@@ -29,23 +32,25 @@ const Form = (props) => {
         }).then((response) => {
             // Passes the array response as an argument to the updateDetails function
             updateDetails(response.data);
-        })
-    }, [userChoice])
+        });
+    }
     
     // Function that passes data from the API response back up to App.js with props
     const updateDetails = (raceData) => {
-        console.log(raceData);
         setName(raceData.name);
         setAge(raceData.age);
         setAlignment(raceData.alignment);
         setSizeDesc(raceData.size_description);
         setLangDesc(raceData.language_desc);
-        setUserChoice(raceData.index);
+        setRaceIndex(raceData.index);
         setTraitsArray(raceData.traits);
     }
 
     return (
-        <form className='form'>
+        <form
+            className='form'
+            onSubmit={callSpecificEndpoint}
+        >
             <label htmlFor="form-select">Choose your character's race</label>
             <select
                 name="form-select"
@@ -60,6 +65,7 @@ const Form = (props) => {
                     )
                 })}
             </select>
+            <button type="submit">Click me</button>
         </form>
     )
 }
