@@ -41,7 +41,7 @@ header {
 }
 
 .flex-center {
-  min-height: 100vh;
+  min-height: calc(100vh - 40px);
   display: flex; 
   flex-direction: column;
   justify-content: center;
@@ -113,26 +113,30 @@ select {
 }
 /* Image component */
 .race-image {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
 }
 /* Results section */
 .results {
   padding: 0 5% 5%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .results-top {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  flex-basis: 30%;
+}
+
+.results ul {
+  flex-basis: 70%;
 }
 
 .results li {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .results li:not(:last-child) {
@@ -153,9 +157,9 @@ footer {
   background-color: #30322B;
   color: white;
   text-align: center;
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
-  right: 0;
+  right: 0; */
   width: 100%;
 }
 

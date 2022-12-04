@@ -5,7 +5,7 @@ const Results = (props) => {
         <ul>
             <li>
                 <div className="list-heading">
-                    <p>Age:</p>
+                    <p>Age</p>
                 </div>
                 <div className="list-details">
                     <p>{age}</p>
@@ -13,7 +13,7 @@ const Results = (props) => {
             </li>
             <li>
                 <div className="list-heading">
-                    <p>Alignment:</p>
+                    <p>Alignment</p>
                 </div>
                 <div className="list-details">
                     <p>{alignment}</p>
@@ -21,7 +21,7 @@ const Results = (props) => {
             </li>
             <li>
                 <div className="list-heading">
-                    <p>Size:</p>
+                    <p>Size</p>
                 </div>
                 <div className="list-details">
                     <p>{sizeDesc}</p>
@@ -29,7 +29,7 @@ const Results = (props) => {
             </li>
             <li>
                 <div className="list-heading">
-                    <p>Language:</p>
+                    <p>Language</p>
                 </div>
                 <div className="list-details">
                     <p>{langDesc}</p>
