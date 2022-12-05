@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 const Traits = (props) => {
 
-    const [traitDesc, setTraitDesc] = useState('');
+    // const [traitDesc, setTraitDesc] = useState('');
     const { traitsArray } = props;
-    const traitNames = [];
-    const traitDescriptions = [];
-
+    // const traitDescriptions = [];
+    console.log(traitsArray);
     useEffect(() => {
-        traitsArray.forEach((trait, index) => {
+        const traitNames = [];
+        traitsArray.forEach((trait) => {
             // console.log(trait.index, index);
             axios({
                 url: `https://www.dnd5eapi.co/api/traits/${trait.index}`,
@@ -17,12 +17,12 @@ const Traits = (props) => {
                 dataResponse: 'json'
             }).then((response) => {
                 console.log(response.data);
-                // traitNames.push(response.data.name);
+                traitNames.push(response.data.name);
                 // traitDescriptions.push(response.data.desc);
 
             });
         });
-        console.log(traitDescriptions);
+        // console.log(traitDescriptions);
     }, [traitsArray])
 
     return (
@@ -31,7 +31,7 @@ const Traits = (props) => {
                 return (
                     <li key={trait.index}>
                         <p>{trait.name}</p>
-                        <p>{traitDesc}</p>
+                        {/* <p>{traitDesc}</p> */}
                     </li>
                 )
             })}
