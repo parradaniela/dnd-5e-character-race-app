@@ -18,7 +18,7 @@ function App() {
   const [sizeDesc, setSizeDesc] = useState('');
   const [langDesc, setLangDesc] = useState('')
   // Create states for the data populating the traits section
-  const [traitsArray, setTraitsArray] = useState([]);
+  const [traitsEndpointsArray, setTraitsEndpointsArray] = useState([]);
   
 
   return (
@@ -33,7 +33,7 @@ function App() {
             setSizeDesc={setSizeDesc}
             setLangDesc={setLangDesc}
             setRaceIndex={setRaceIndex}
-            setTraitsArray={setTraitsArray}
+            setTraitsEndpointsArray={setTraitsEndpointsArray}
           />
         </header>
         <main>
@@ -51,7 +51,7 @@ function App() {
               />
             </div>
             <div className="results-secondary">
-              <Traits traitsArray={traitsArray} />
+              <Traits traitsEndpointsArray={traitsEndpointsArray} />
             </div>
           </section>
         </main>

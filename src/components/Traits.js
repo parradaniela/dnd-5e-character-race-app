@@ -1,37 +1,35 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Traits = (props) => {
-
-    // const [traitDesc, setTraitDesc] = useState('');
-    const { traitsArray } = props;
-    // const traitDescriptions = [];
-    console.log(traitsArray);
+    // Destructuring props
+    const { traitsEndpointsArray } = props;
+    // Set empty array into state for trait data objects to push into
+    const [traitFullInfo, setTraitFullInfo] = useState([]);
     useEffect(() => {
-        const traitNames = [];
-        traitsArray.forEach((trait) => {
-            // console.log(trait.index, index);
+        const traitDataArray = [];
+        // Make an API call for the endpoint on each trait passed from the Form 
+        traitsEndpointsArray.forEach((endpoint) => {
             axios({
-                url: `https://www.dnd5eapi.co/api/traits/${trait.index}`,
+                url: `https://www.dnd5eapi.co/api/traits/${endpoint.index}`,
                 method: 'GET',
                 dataResponse: 'json'
             }).then((response) => {
-                console.log(response.data);
-                traitNames.push(response.data.name);
-                // traitDescriptions.push(response.data.desc);
-
+                traitDataArray.push(response.data);
+                console.log(traitDataArray);
             });
+            setTraitFullInfo(traitDataArray);
+            console.log(traitFullInfo);
         });
-        // console.log(traitDescriptions);
-    }, [traitsArray])
-
+    }, [traitsEndpointsArray])
+    
     return (
         <ul>
-            {traitsArray.map((trait) => {
+            {traitFullInfo.map((trait) => {
                 return (
                     <li key={trait.index}>
                         <p>{trait.name}</p>
-                        {/* <p>{traitDesc}</p> */}
+                        <p>{trait.desc}</p>                     
                     </li>
                 )
             })}
