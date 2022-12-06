@@ -1,7 +1,6 @@
 const Traits = (props) => {
     // Destructuring props
     const { traitDetailsArray } = props;
-    // console.log(traitDetailsArray);
     
     return (
         <div className="results-secondary">
