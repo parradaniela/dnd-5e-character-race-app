@@ -9,14 +9,14 @@ import Footer from './components/Footer.js';
 function App() {
   // Setting our states
 
-  // States used for the Form.js componentn
+  // States used for the Form.js component
   const [userChoice, setUserChoice] = useState('');
   const [selectOptions, setSelectOptions] = useState([]);
   
   // States used in Results.js component
-  const [name, setName] = useState(''); // Capital first letter
+  const [name, setName] = useState(''); 
   const [age, setAge] = useState('');
-  const [raceIndex, setRaceIndex] = useState(''); // all lowercase
+  const [raceIndex, setRaceIndex] = useState('');
   const [alignment, setAlignment] = useState('');
   const [sizeDesc, setSizeDesc] = useState('');
   const [langDesc, setLangDesc] = useState('')

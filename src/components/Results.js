@@ -1,8 +1,7 @@
 import Image from './Image.js';
 
-const Results = (props) => {
-    // Deconstructing props
-    const { name, age, raceIndex, alignment, sizeDesc, langDesc } = props;
+const Results = ({ name, age, raceIndex, alignment, sizeDesc, langDesc }) => {
+    
     return (
         <div className="results-main">
             <div className="results-top">

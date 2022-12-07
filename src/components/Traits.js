@@ -1,6 +1,4 @@
-const Traits = (props) => {
-    // Destructuring props
-    const { traitDetailsArray } = props;
+const Traits = ({ traitDetailsArray }) => {
     
     return (
         <div className="results-secondary">

@@ -165,12 +165,7 @@ button:focus {
 }
 
 .list-heading {
-  /* flex-basis: 20%; */
   font-weight: 700;
-}
-
-.list-details {
-  /* flex-basis: 75%; */
 }
 
 /* Footer */

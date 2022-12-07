@@ -1,6 +1,4 @@
-const Form = (props) => {
-    // Destructuring props
-    const { selectOptions, callSpecificEndpoint, userChoice, setUserChoice } = props;
+const Form = ({ selectOptions, callSpecificEndpoint, userChoice, setUserChoice }) => {
     
     return (
         <>
