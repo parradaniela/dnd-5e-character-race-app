@@ -29,21 +29,22 @@ function App() {
   // Note that they are technically in reverse order here, because I was advised to write the function definitions before they were actually called. So the order of the API calls goes from bottom to top (though at this time the final API call is not working as intended)
 
   // A function that takes an array of objects from the API call that happens in callSpecificEndpoint, and loops through the objects in the array to find new endpoints for a race's unique traits, then updates the traitDetailsArray state to pass it as a prop to the Traits component 
-  const callTraitsApiEndpoint = (array) => {
-    const traitDataArray = [];
-    array.forEach((endpoint) => {
-        axios({
-            url: `https://www.dnd5eapi.co/api/traits/${endpoint.index}`,
-            method: 'GET',
-            dataResponse: 'json'
-          }).then((response) => {
-            // Push each object into an empty array
-            traitDataArray.push(response.data);
-            // Update the state of traitDetailsArray with the data
-          });
-          setTraitDetailsArray(traitDataArray)  
-        }); 
-  }
+  // const callTraitsApiEndpoint = (array) => {
+  //   const traitDataArray = [];
+  //   array.forEach((endpoint) => {
+  //       axios({
+  //           url: `https://www.dnd5eapi.co/api/traits/${endpoint.index}`,
+  //           method: 'GET',
+  //           dataResponse: 'json'
+  //       }).then((response) => {
+  //           console.log(response);
+  //           // Push each object into an empty array
+  //           traitDataArray.push(response.data);
+  //           // Update the state of traitDetailsArray with the data
+  //         });
+  //         setTraitDetailsArray(traitDataArray)  
+  //       }); 
+  // }
 
   // A function that updates different states using data received from the callSpecificEndpoint function, then passes them as props to the Results component for display 
   const updateResults = (raceData) => {
@@ -53,6 +54,7 @@ function App() {
     setSizeDesc(raceData.size_description);
     setLangDesc(raceData.language_desc);
     setRaceIndex(raceData.index);
+    setTraitDetailsArray(raceData.traits)
   }
 
   // Second API call, attached to a submit event on the Form.js component, that calls a specific race's endpoint
@@ -63,8 +65,9 @@ function App() {
         method: "GET",
         dataResponse: "json"
     }).then((response) => {
+      // console.log(response.data);
       updateResults(response.data);
-      callTraitsApiEndpoint(response.data.traits);
+      // callTraitsApiEndpoint(response.data.traits);
     });
   }
 
