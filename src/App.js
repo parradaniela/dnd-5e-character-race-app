@@ -75,7 +75,6 @@ function App() {
                 details={details}
               />
             <Traits
-
               details={details}
             />
           </section>
