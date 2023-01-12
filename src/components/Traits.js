@@ -1,20 +1,15 @@
-const Traits = ({ traitDetailsArray }) => {
-    
+import Trait from './Trait.js';
+
+const Traits = ({ details }) => {
     return (
         <div className="results-secondary">
             <ul>
-                {traitDetailsArray.map((trait) => {
-                    return (
-                        <li key={trait.index}>
-                            <div className="list-heading">
-                                <p>{trait.name}</p>
-                            </div>
-                            <div className="list-details">
-                                <p>{trait.desc[0]}</p>                     
-                            </div>
-                        </li> 
-                    ) 
-                })}
+                {
+                    details.traits.length > 0 ?
+                        details.traits.map(({ index, url }) =>
+                            <li><Trait key={index} url={url} /></li>)
+                        : <h3>This race does not have any additional traits</h3>
+                }   
             </ul>
         </div>
     )

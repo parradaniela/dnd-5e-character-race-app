@@ -1,53 +1,38 @@
 import Image from './Image.js';
 
-const Results = ({ name, age, raceIndex, alignment, sizeDesc, langDesc }) => {
+const Results = ({ details }) => {
     
     return (
         
         <div className="results-main">
-            {/* Ternary statement to hide results page before user chooses a race */}
-            {raceIndex ? 
-                <>
-                    <div className="results-top">
-                        <h2>{name}</h2>
-                        <Image raceIndex={raceIndex} />
-                    </div>
-                    <ul>
-                        <li>
-                            <div className="list-heading">
-                                <p>Age</p>
-                            </div>
-                            <div className="list-details">
-                                <p>{age}</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="list-heading">
-                                <p>Alignment</p>
-                            </div>
-                            <div className="list-details">
-                                <p>{alignment}</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="list-heading">
-                                <p>Size</p>
-                            </div>
-                            <div className="list-details">
-                                <p>{sizeDesc}</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="list-heading">
-                                <p>Language</p>
-                            </div>
-                            <div className="list-details">
-                                <p>{langDesc}</p>
-                            </div>
-                        </li>
-                    </ul>
-                </>
-            : null}
+            {
+                details.name ? 
+                    <>
+                        <div className="results-top">
+                            <h2>{details.name}</h2>
+                            <Image index={details.index} />
+                        </div>
+                        <ul>
+                            <li>
+                                <h3 className="list-heading">Age</h3>
+                                <p className="list-details">{details.age}</p>
+                            </li>
+                            <li>
+                                <h3 className="list-heading">Alignment</h3>
+                                <p className="list-details">{details.alignment}</p>
+                            </li>
+                            <li>
+                                <h3 className="list-heading">Size</h3>
+                                <p className="list-details">{details.size}</p>
+                            </li>
+                            <li>
+                                <h3 className="list-heading">Language</h3>
+                                <p className="list-details">{details.language}</p>
+                            </li>
+                        </ul>
+                    </>
+                : null
+            }
         </div>
     )
 }
