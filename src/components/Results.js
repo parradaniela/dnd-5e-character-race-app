@@ -3,6 +3,7 @@ import Image from './Image.js';
 const Results = ({ details }) => {
     
     return (
+        
         <div className="results-main">
             {
                 details.name ? 
