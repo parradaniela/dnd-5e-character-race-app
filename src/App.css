@@ -14,7 +14,7 @@ html {
   font-size: 125%;
 }
 /* Stripping styles */
-h1, h2, p, form, select, option, button, ul {
+h1, h2, h3, p, form, select, option, button, ul {
   margin: 0; 
   padding: 0;
   transition: all .3s;
@@ -71,8 +71,13 @@ h2 {
   font-size: 5rem;
 }
 
-h2, 
-.list-heading p {
+h3 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2,
+h3 {
   font-family: 'Tangerine', cursive;
 }
 
@@ -81,9 +86,6 @@ label {
   font-size: 2.5rem;
 }
 
-.list-heading p {
-  font-size: 3rem;
-}
 
 p {
   font-family:'Comfortaa', cursive;
@@ -164,10 +166,6 @@ button:focus {
   margin-bottom: 20px;
 }
 
-.list-heading {
-  font-weight: 700;
-}
-
 /* Footer */
 footer {
   padding: 10px;
@@ -224,7 +222,7 @@ a:focus {
     width: 50%;
   }
 
-  .list-heading {
+  h3 {
     text-align: center;
   }
 }
