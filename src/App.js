@@ -39,6 +39,7 @@ function App() {
         method: "GET",
         dataResponse: "json"
     }).then((response) => {
+      console.log(response);
       setDetails({
         name: response.data.name,
         age: response.data.age,

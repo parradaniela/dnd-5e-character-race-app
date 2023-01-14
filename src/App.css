@@ -169,6 +169,16 @@ button:focus {
   margin-bottom: 20px;
 }
 
+.list-heading {
+  /* background: salmon; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-details {
+  /* background: darkblue; */
+}
 /* Footer */
 footer {
   padding: 10px;

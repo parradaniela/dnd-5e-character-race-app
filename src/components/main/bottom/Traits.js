@@ -9,7 +9,9 @@ const Traits = ({ details }) => {
                         {
                             details.traits.length > 0 ?
                                 details.traits.map(({ index, url }) =>
-                                    <li><Trait key={index} url={url} /></li>)
+                                    <li key={index}>
+                                        <Trait url={url} />
+                                    </li>)
                                 : <h3>This race does not have any additional traits</h3>
                         }   
                     </ul>
