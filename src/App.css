@@ -131,7 +131,7 @@ button:focus {
 
 /* Image component */
 .race-image {
-  width: 100%;
+  width: 30%;
   margin: 0 auto;
 }
 /* Results section */
@@ -141,16 +141,19 @@ button:focus {
   flex-direction: column;
 }
 
-.results-main {
-  display: flex;
-}
-
 .results-top {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  flex-basis: 30%;
+}
+
+.results-top-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.results-bottom {
+  display: flex;
 }
 
 .results ul {

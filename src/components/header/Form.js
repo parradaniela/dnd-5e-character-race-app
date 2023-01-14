@@ -2,7 +2,6 @@ const Form = ({ selectOptions, callSpecificEndpoint, userChoice, setUserChoice }
     
     return (
         <>
-            <h1>DnD 5e Character Race Information</h1>
             <form
                 className='form'
                 onSubmit={(e) => { callSpecificEndpoint(e) }}

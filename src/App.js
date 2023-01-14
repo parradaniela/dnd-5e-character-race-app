@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';  
 import './App.css';
-import Form from './components/Form.js';
-import Results from './components/Results.js';
-import Traits from './components/Traits.js';
+import Header from './components/header/Header.js'
+import Form from './components/header/Form.js';
+import Main from './components/main/Main.js';
+import GeneralRaceInfo from './components/main/bottom/GeneralRaceInfo.js';
+import ResultsTop from './components/main/top/ResultsTop.js';
+import ResultsBottom from './components/main/bottom/ResultsBottom.js';
+import Image from './components/main/top/Image.js';
+import Traits from './components/main/bottom/Traits.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -61,24 +66,26 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper flex-center">
-        <header>
+        <Header>
           <Form
             userChoice={userChoice}
             setUserChoice={setUserChoice}
             selectOptions={selectOptions}
             callSpecificEndpoint={callSpecificEndpoint}
           />
-        </header>
-        <main>
-          <section className="results">
-            <Results
-                details={details}
-              />
-            <Traits
-              details={details}
-            />
-          </section>
-        </main>
+        </Header>
+        <Main>
+          <ResultsTop details={details}>
+            <Image
+              index={details.index}
+              userChoice={userChoice}
+            />  
+            <GeneralRaceInfo details={details} />
+          </ResultsTop>
+          <ResultsBottom>
+            <Traits details={details} />
+          </ResultsBottom>
+        </Main>
       </div>
       <Footer />
     </div>

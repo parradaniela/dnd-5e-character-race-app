@@ -1,17 +1,11 @@
-import Image from './Image.js';
 
-const Results = ({ details }) => {
+const GeneralRaceInfo = ({ details, children }) => {
     
     return (
-        
-        <div className="results-main">
+        <>
             {
-                details.name ? 
+                details.name ?
                     <>
-                        <div className="results-top">
-                            <h2>{details.name}</h2>
-                            <Image index={details.index} />
-                        </div>
                         <ul>
                             <li>
                                 <h3 className="list-heading">Age</h3>
@@ -30,11 +24,12 @@ const Results = ({ details }) => {
                                 <p className="list-details">{details.language}</p>
                             </li>
                         </ul>
+                        {children}
                     </>
-                : null
+                    : null
             }
-        </div>
+        </>
     )
 }
 
-export default Results;
+export default GeneralRaceInfo;
