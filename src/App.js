@@ -12,13 +12,10 @@ import Traits from './components/main/bottom/Traits.js';
 import Footer from './components/Footer.js';
 
 function App() {
+  
   // Setting our states
-
-  // States used for the Form.js component
   const [userChoice, setUserChoice] = useState('');
   const [selectOptions, setSelectOptions] = useState([]);
-  
-  // States used in Results.js component
   const [accordionData, setAccordionData] = useState({})
   const [index, setIndex] = useState('')
   const [traitsArray, setTraitsArray] = useState([])
@@ -52,8 +49,7 @@ function App() {
         url: "https://www.dnd5eapi.co/api/races/",
         method: "GET",
         dataResponse: "json"
-    }).then((response) => {
-        // Sets the state of selectOptions as the array received from the API 
+    }).then((response) => { 
         setSelectOptions(response.data.results);
     });
   }, [])

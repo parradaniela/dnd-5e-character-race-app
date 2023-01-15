@@ -1,34 +1,32 @@
+import { useState } from "react";
 
-const GeneralRaceInfo = ({ accordionData, children }) => {
+const GeneralRaceInfo = ({ accordionData }) => {
+    
+    const accordionEntriesArray = Object.entries(accordionData);
+    const [selected, setSelected] = useState(null);
+    const toggle = (i) => {
+        if (selected === i) {
+            return setSelected(null)
+        }
+        setSelected(i)
+    }
     
     return (
-        <>
-            {
-                accordionData.name ?
-                    <>
-                        <ul>
-                            <li>
-                                <h3 className="list-heading">Age</h3>
-                                <p className="list-details">{accordionData.age}</p>
-                            </li>
-                            <li>
-                                <h3 className="list-heading">Alignment</h3>
-                                <p className="list-details">{accordionData.alignment}</p>
-                            </li>
-                            <li>
-                                <h3 className="list-heading">Size</h3>
-                                <p className="list-details">{accordionData.size}</p>
-                            </li>
-                            <li>
-                                <h3 className="list-heading">Language</h3>
-                                <p className="list-details">{accordionData.language}</p>
-                            </li>
-                        </ul>
-                        {children}
-                    </>
-                    : null
-            }
-        </>
+        <ul>
+        {
+            accordionEntriesArray.map(([heading, text], index) => 
+                <li>
+                    <div className="list-heading" onClick={() => toggle(index)}>
+                        <h3>{heading}</h3> 
+                        <span>{selected === index ? '-' : '+'}</span>
+                    </div>
+                    <div className={selected === index ? 'list-details show' : 'list-details'}>
+                        <p>{text}</p>
+                    </div>
+                </li>
+            )
+        }
+        </ul>
     )
 }
 
