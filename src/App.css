@@ -69,6 +69,7 @@ h1 {
 h2 {
   text-align: center;
   font-size: 5rem;
+  text-transform: capitalize;
 }
 
 h3 {
@@ -150,6 +151,7 @@ button:focus {
 .results-top-info {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .results-bottom {

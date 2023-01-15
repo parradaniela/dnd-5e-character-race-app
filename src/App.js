@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/header/Header.js'
 import Form from './components/header/Form.js';
 import Main from './components/main/Main.js';
-import GeneralRaceInfo from './components/main/bottom/GeneralRaceInfo.js';
+import AccordionGeneral from './components/main/bottom/AccordionGeneral.js';
 import ResultsTop from './components/main/top/ResultsTop.js';
 import ResultsBottom from './components/main/bottom/ResultsBottom.js';
 import Image from './components/main/top/Image.js';
@@ -13,16 +13,16 @@ import Footer from './components/Footer.js';
 
 function App() {
   
-  // Setting our states
+  // Setting states
   const [userChoice, setUserChoice] = useState('');
   const [selectOptions, setSelectOptions] = useState([]);
-  const [accordionData, setAccordionData] = useState({})
-  const [index, setIndex] = useState('')
-  const [traitsArray, setTraitsArray] = useState([])
+  const [accordionData, setAccordionData] = useState({});
+  const [race, setRace] = useState('');
+  const [traitsArray, setTraitsArray] = useState([]);
 
   // API Calls
 
-  // Second API call, attached to a submit event on the Form.js component, that calls a specific race's endpoint
+  // API call attached to a submit event on the Form.js component, that calls a specific race's endpoint and updates a number of states
   const formSubmitApiCall = (event) => {
     event.preventDefault();
     axios({
@@ -30,15 +30,13 @@ function App() {
         method: "GET",
         dataResponse: "json"
     }).then((response) => {
-      // console.log(response);
       setAccordionData({
-        name: response.data.name,
         age: response.data.age,
         alignment: response.data.alignment,
         size: response.data.size_description,
         language: response.data.language_desc 
       })
-      setIndex(response.data.index)
+      setRace(response.data.index)
       setTraitsArray(response.data.traits)
       })
   }
@@ -65,13 +63,13 @@ function App() {
             formSubmitApiCall={formSubmitApiCall}
           />
         </Header>
-        <Main>
-          <ResultsTop accordionData={accordionData}>
+        <Main race={race}>
+          <ResultsTop race={race}>
             <Image
-              index={index}
+              race={race}
               userChoice={userChoice}
             />  
-            <GeneralRaceInfo accordionData={accordionData} />
+            <AccordionGeneral accordionData={accordionData} />
           </ResultsTop>
           <ResultsBottom>
             <Traits traitsArray={traitsArray} />

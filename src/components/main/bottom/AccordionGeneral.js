@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const GeneralRaceInfo = ({ accordionData }) => {
+const AccordionGeneral = ({ accordionData }) => {
     
     const accordionEntriesArray = Object.entries(accordionData);
     const [selected, setSelected] = useState(null);
@@ -30,4 +30,4 @@ const GeneralRaceInfo = ({ accordionData }) => {
     )
 }
 
-export default GeneralRaceInfo;
+export default AccordionGeneral;

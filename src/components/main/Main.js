@@ -1,9 +1,13 @@
-const Main = ({ children }) => {
+const Main = ({ race, children }) => {
     return(
         <main>
-            <section className="results">
-                {children}
-            </section>
+            {
+                race ? 
+                    <section className="results">
+                        {children}
+                    </section>
+                : null 
+            }
         </main>
     )
 }
