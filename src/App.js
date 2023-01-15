@@ -19,37 +19,31 @@ function App() {
   const [selectOptions, setSelectOptions] = useState([]);
   
   // States used in Results.js component
-  const [details, setDetails] = useState({
-    name: '',
-    age: '',
-    alignment: '',
-    size: '',
-    language: '',
-    index: '',
-    traits: []
-  })
+  const [accordionData, setAccordionData] = useState({})
+  const [index, setIndex] = useState('')
+  const [traitsArray, setTraitsArray] = useState([])
 
   // API Calls
 
   // Second API call, attached to a submit event on the Form.js component, that calls a specific race's endpoint
-  const callSpecificEndpoint = (event) => {
+  const formSubmitApiCall = (event) => {
     event.preventDefault();
     axios({
         url: `https://www.dnd5eapi.co/api/races/${userChoice}`,
         method: "GET",
         dataResponse: "json"
     }).then((response) => {
-      console.log(response);
-      setDetails({
+      // console.log(response);
+      setAccordionData({
         name: response.data.name,
         age: response.data.age,
         alignment: response.data.alignment,
         size: response.data.size_description,
-        language: response.data.language_desc,
-        index: response.data.index,
-        traits: response.data.traits
+        language: response.data.language_desc 
       })
-    });
+      setIndex(response.data.index)
+      setTraitsArray(response.data.traits)
+      })
   }
 
   // FIrst API call, on App.js component mount, to get the array of races that will populate the Select element in the Form's JSX
@@ -72,19 +66,19 @@ function App() {
             userChoice={userChoice}
             setUserChoice={setUserChoice}
             selectOptions={selectOptions}
-            callSpecificEndpoint={callSpecificEndpoint}
+            formSubmitApiCall={formSubmitApiCall}
           />
         </Header>
         <Main>
-          <ResultsTop details={details}>
+          <ResultsTop accordionData={accordionData}>
             <Image
-              index={details.index}
+              index={index}
               userChoice={userChoice}
             />  
-            <GeneralRaceInfo details={details} />
+            <GeneralRaceInfo accordionData={accordionData} />
           </ResultsTop>
           <ResultsBottom>
-            <Traits details={details} />
+            <Traits traitsArray={traitsArray} />
           </ResultsBottom>
         </Main>
       </div>

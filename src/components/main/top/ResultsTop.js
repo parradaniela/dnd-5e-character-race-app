@@ -1,7 +1,7 @@
-const ResultsTop = ({details, children}) => {
+const ResultsTop = ({accordionData, children}) => {
     return(
         <div className="results-top">
-            <h2>{details.name}</h2>
+            <h2>{accordionData.name}</h2>
             <div className="results-top-info">
                 {children}
             </div>

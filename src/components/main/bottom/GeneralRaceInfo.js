@@ -1,27 +1,27 @@
 
-const GeneralRaceInfo = ({ details, children }) => {
+const GeneralRaceInfo = ({ accordionData, children }) => {
     
     return (
         <>
             {
-                details.name ?
+                accordionData.name ?
                     <>
                         <ul>
                             <li>
                                 <h3 className="list-heading">Age</h3>
-                                <p className="list-details">{details.age}</p>
+                                <p className="list-details">{accordionData.age}</p>
                             </li>
                             <li>
                                 <h3 className="list-heading">Alignment</h3>
-                                <p className="list-details">{details.alignment}</p>
+                                <p className="list-details">{accordionData.alignment}</p>
                             </li>
                             <li>
                                 <h3 className="list-heading">Size</h3>
-                                <p className="list-details">{details.size}</p>
+                                <p className="list-details">{accordionData.size}</p>
                             </li>
                             <li>
                                 <h3 className="list-heading">Language</h3>
-                                <p className="list-details">{details.language}</p>
+                                <p className="list-details">{accordionData.language}</p>
                             </li>
                         </ul>
                         {children}

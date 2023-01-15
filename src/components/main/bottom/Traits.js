@@ -1,22 +1,22 @@
 import Trait from './Trait.js';
 
-const Traits = ({ details }) => {
+const Traits = ({ traitsArray }) => {
     return (
         <div className="results-secondary">
-            {
-                details.name ? 
+            {/* {
+                details.name ?  */}
                     <ul>
                         {
-                            details.traits.length > 0 ?
-                                details.traits.map(({ index, url }) =>
+                            traitsArray.length > 0 ?
+                                traitsArray.map(({ index, url }) =>
                                     <li key={index}>
                                         <Trait url={url} />
                                     </li>)
                                 : <h3>This race does not have any additional traits</h3>
                         }   
                     </ul>
-                : null
-            }
+                {/* : null
+            } */}
         </div>
     )
 }
