@@ -1,49 +1,44 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';  
 import './App.css';
-import Form from './components/Form.js';
-import Results from './components/Results.js';
-import Traits from './components/Traits.js';
+import Header from './components/header/Header.js'
+import Form from './components/header/Form.js';
+import Main from './components/main/Main.js';
+import AccordionGeneral from './components/main/bottom/AccordionGeneral.js';
+import ResultsTop from './components/main/top/ResultsTop.js';
+import ResultsBottom from './components/main/bottom/ResultsBottom.js';
+import Image from './components/main/top/Image.js';
+import Traits from './components/main/bottom/Traits.js';
 import Footer from './components/Footer.js';
 
 function App() {
-  // Setting our states
-
-  // States used for the Form.js component
+  
+  // Setting states
   const [userChoice, setUserChoice] = useState('');
   const [selectOptions, setSelectOptions] = useState([]);
-  
-  // States used in Results.js component
-  const [details, setDetails] = useState({
-    name: '',
-    age: '',
-    alignment: '',
-    size: '',
-    language: '',
-    index: '',
-    traits: []
-  })
+  const [accordionData, setAccordionData] = useState({});
+  const [race, setRace] = useState('');
+  const [traitsArray, setTraitsArray] = useState([]);
 
   // API Calls
 
-  // Second API call, attached to a submit event on the Form.js component, that calls a specific race's endpoint
-  const callSpecificEndpoint = (event) => {
+  // API call attached to a submit event on the Form.js component, that calls a specific race's endpoint and updates a number of states
+  const formSubmitApiCall = (event) => {
     event.preventDefault();
     axios({
         url: `https://www.dnd5eapi.co/api/races/${userChoice}`,
         method: "GET",
         dataResponse: "json"
     }).then((response) => {
-      setDetails({
-        name: response.data.name,
+      setAccordionData({
         age: response.data.age,
         alignment: response.data.alignment,
         size: response.data.size_description,
-        language: response.data.language_desc,
-        index: response.data.index,
-        traits: response.data.traits
+        language: response.data.language_desc 
       })
-    });
+      setRace(response.data.index)
+      setTraitsArray(response.data.traits)
+      })
   }
 
   // FIrst API call, on App.js component mount, to get the array of races that will populate the Select element in the Form's JSX
@@ -52,8 +47,7 @@ function App() {
         url: "https://www.dnd5eapi.co/api/races/",
         method: "GET",
         dataResponse: "json"
-    }).then((response) => {
-        // Sets the state of selectOptions as the array received from the API 
+    }).then((response) => { 
         setSelectOptions(response.data.results);
     });
   }, [])
@@ -61,24 +55,26 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper flex-center">
-        <header>
+        <Header>
           <Form
             userChoice={userChoice}
             setUserChoice={setUserChoice}
             selectOptions={selectOptions}
-            callSpecificEndpoint={callSpecificEndpoint}
+            formSubmitApiCall={formSubmitApiCall}
           />
-        </header>
-        <main>
-          <section className="results">
-            <Results
-                details={details}
-              />
-            <Traits
-              details={details}
-            />
-          </section>
-        </main>
+        </Header>
+        <Main race={race}>
+          <ResultsTop race={race}>
+            <Image
+              race={race}
+              userChoice={userChoice}
+            />  
+            <AccordionGeneral accordionData={accordionData} />
+          </ResultsTop>
+          <ResultsBottom>
+            <Traits traitsArray={traitsArray} />
+          </ResultsBottom>
+        </Main>
       </div>
       <Footer />
     </div>

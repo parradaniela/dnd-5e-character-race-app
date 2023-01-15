@@ -1,11 +1,10 @@
-const Form = ({ selectOptions, callSpecificEndpoint, userChoice, setUserChoice }) => {
+const Form = ({ selectOptions, formSubmitApiCall, userChoice, setUserChoice }) => {
     
     return (
         <>
-            <h1>DnD 5e Character Race Information</h1>
             <form
                 className='form'
-                onSubmit={(e) => { callSpecificEndpoint(e) }}
+                onSubmit={(e) => { formSubmitApiCall(e) }}
             >
                 <label htmlFor="form-select">Choose a race</label>
                 <select
