@@ -1,6 +1,10 @@
 import Trait from './Trait.js';
+import { useContext } from 'react';
+import { ApiDataContext } from '../../../Contexts/ApiDataContext.js';
 
-const Traits = ({ traitsArray }) => {
+const Traits = () => {
+
+    const {traitsArray} = useContext(ApiDataContext)
     return (
         <div className="results-secondary">
             <ul>

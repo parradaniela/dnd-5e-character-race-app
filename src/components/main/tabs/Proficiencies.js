@@ -1,0 +1,24 @@
+import Proficiency from './Proficiency.js';
+import { useContext } from 'react';
+import { ApiDataContext } from '../../../Contexts/ApiDataContext.js';
+
+const Proficiencies = () => {
+
+    const {proficienciesArray} = useContext(ApiDataContext)
+    return (
+        <div className="results-secondary">
+            <ul>
+                {
+                    proficienciesArray.length > 0 ?
+                        proficienciesArray.map(({ index, url }) =>
+                            <li key={index}>
+                                <Proficiency url={url} />
+                            </li>)
+                    : <h3>This race does not have any additional proficiencies</h3>
+                }   
+            </ul>
+        </div>
+    )
+}
+
+export default Proficiencies;

@@ -4,12 +4,8 @@ import { ApiDataContext } from './Contexts/ApiDataContext';
 import Header from './components/header/Header.js'
 import Form from './components/header/Form.js';
 import Main from './components/main/Main.js';
-import Tabs from './components/main/top/Tabs';
-import ResultsTop from './components/main/top/ResultsTop.js';
+import Tabs from './components/main/tabs/Tabs';
 import Image from './components/main/top/Image.js';
-import AccordionGeneral from './components/main/bottom/AccordionGeneral.js';
-import ResultsBottom from './components/main/bottom/ResultsBottom.js';
-import Traits from './components/main/bottom/Traits.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -47,21 +43,14 @@ function App() {
               setUserChoice={setUserChoice}
             />
           </Header>
-          <Tabs userChoice={userChoice} race={race}>
-          </Tabs>
-        </ApiDataContext.Provider>
-        <Main race={race}>
-          <ResultsTop race={race}>
+          <Main race={race}>
             <Image
               race={race}
               userChoice={userChoice}
             />  
-            
-          </ResultsTop>
-          <ResultsBottom>
-            <Traits traitsArray={traitsArray} />
-          </ResultsBottom>
-        </Main>
+            <Tabs race={race} />
+          </Main>
+        </ApiDataContext.Provider>
       </div>
       <Footer />
     </div>
