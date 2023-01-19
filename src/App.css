@@ -20,6 +20,10 @@ h1, h2, h3, p, form, select, option, button, ul {
   transition: all .3s;
 }
 
+li {
+  list-style-type: none;
+}
+
 button, input {
   border: none;
 }
@@ -136,6 +140,23 @@ button:focus {
   margin: 0 auto;
 }
 /* Results section */
+
+.tabs {
+  background-color: red;
+}
+
+.active-tabs {
+  background-color: blue;
+}
+
+.content {
+  display: none;
+}
+
+.active-content {
+  display: block;
+}
+
 .results {
   padding: 0 5% 5%;
   display: flex;
