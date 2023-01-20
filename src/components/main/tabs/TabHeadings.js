@@ -12,7 +12,7 @@ const TabHeadings = ({toggleActive, toggleTab}) => {
                         : "tabs"
                     }
                     onClick={() => toggleTab(i)}>
-                        <button className="btn-tab">{heading}</button>
+                        <button className="btn btn-tab">{heading}</button>
                     </li>
                 ) 
             }

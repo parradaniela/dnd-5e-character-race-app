@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Kalam');
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+h1, h2, h3, p, span {
+    color: var(--color-black);
+}
 
 h1 {
     font-family: 'Berkshire Swash', cursive;
@@ -11,12 +15,12 @@ h1 {
 
 h2 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 6rem;
     text-transform: capitalize;
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 
@@ -31,9 +35,9 @@ label {
 }
 
 
-p {
-    font-family:'Comfortaa', cursive;
-    font-size: 1.2rem;
+p, span {
+    font-family:'Kalam', cursive;
+    font-size: 1.6rem;
 }
 
 footer p {

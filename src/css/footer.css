@@ -1,12 +1,15 @@
 footer {
     padding: 10px;
-    background-color: #30322B;
-    color: white;
+    background-color: var(--color-primary);
     text-align: center;
     width: 100%;
 }
 
+footer p {
+    color: var(--color-white);
+}
+
 a:hover, 
 a:focus {
-    color: #c9ab6a;
+    color: var(--color-secondary);
 }

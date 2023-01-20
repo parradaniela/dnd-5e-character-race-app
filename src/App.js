@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import './App.css';
+import './css/variables.css';
 import './css/setup.css';
+import './css/global.css';
 import './css/strippingStyles.css';
 import './css/typography.css';
 import './css/form.css';
+import './css/image.css';
 import './css/tabs.css';
 import './css/accordion.css';
 import './css/footer.css';
@@ -13,7 +15,6 @@ import Header from './components/header/Header.js'
 import Form from './components/header/Form.js';
 import Main from './components/main/Main.js';
 import Tabs from './components/main/tabs/Tabs';
-import Image from './components/main/top/Image.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper flex-center">
+      <div className="wrapper body-flex-center">
         <ApiDataContext.Provider
           value={
             {
@@ -51,11 +52,7 @@ function App() {
               setUserChoice={setUserChoice}
             />
           </Header>
-          <Main race={race}>
-            {/* <Image
-              race={race}
-              userChoice={userChoice}
-            />   */}
+          <Main race={race}>  
             <Tabs race={race} />
           </Main>
         </ApiDataContext.Provider>

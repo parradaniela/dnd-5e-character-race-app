@@ -88,7 +88,7 @@ const Form = ({ userChoice, setUserChoice }) => {
                         )
                     })}
                 </select>
-                <button type="submit">Submit</button>
+                <button type="submit" className="btn">Submit</button>
             </form> 
         </>
     )

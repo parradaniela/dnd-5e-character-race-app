@@ -7,8 +7,12 @@
     justify-content: space-between;
     align-items: center;
     text-transform: capitalize;
-    background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+.accordion-heading,
+.no-results {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 h3, 
@@ -24,9 +28,6 @@ span {
     transition: all .5s cubic-bezier(0, 1, 0, 1)
 }
 
-.no-results {
-    background-color: rgba(0, 0, 0, 0.2);;
-}
 
 .accordion-details.show {
     height: auto;
