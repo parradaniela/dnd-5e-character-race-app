@@ -1,0 +1,27 @@
+.form {
+    display: flex;
+    justify-content: center;
+    padding: 0 5% 5%;
+}
+
+select {
+    width: 20%;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 5%;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    width: 15%;
+    border-radius: 30px;
+    background-color: #30322B;
+    color: white;
+}
+
+button:hover, 
+button:focus {
+    cursor: pointer;
+    background-color: #505e20;
+}

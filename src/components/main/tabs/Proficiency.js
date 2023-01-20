@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AccordionItem from './AccordionItem';
 
-const Proficiency = ({ url }) => {
+const Proficiency = ({ url, index }) => {
     const [apiResponse, setApiResponse] = useState('')
 
     useEffect(() => {
@@ -16,8 +17,11 @@ const Proficiency = ({ url }) => {
 
     return (
         <>
-            <h3>{apiResponse}</h3>
-            <p>This race is proficient in {apiResponse}</p>
+            <AccordionItem
+                heading={apiResponse}
+                text={`This race is proficient in ${apiResponse}`}
+                index={index}
+            />
         </>
     )
 }

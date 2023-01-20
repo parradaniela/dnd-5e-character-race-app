@@ -1,0 +1,12 @@
+footer {
+    padding: 10px;
+    background-color: #30322B;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+a:hover, 
+a:focus {
+    color: #c9ab6a;
+}

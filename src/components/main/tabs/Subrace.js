@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AccordionItem from './AccordionItem';
 
-const Subrace = ({url}) => {
+const Subrace = ({url, index}) => {
     const [apiResponse, setApiResponse] = useState({
         desc: [], 
         name: ''
@@ -22,8 +23,11 @@ const Subrace = ({url}) => {
 
     return (
         <>
-            <h3>{apiResponse.name}</h3>
-            <p>{apiResponse.desc}</p>
+            <AccordionItem
+                heading={apiResponse.name}
+                text={apiResponse.desc}
+                index={index}
+            />
         </>
     )
 }

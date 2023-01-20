@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+h1 {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 4rem;
+    padding: 5%;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 5rem;
+    text-transform: capitalize;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2,
+h3 {
+    font-family: 'Tangerine', cursive;
+}
+
+label {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2.5rem;
+}
+
+
+p {
+    font-family:'Comfortaa', cursive;
+    font-size: 1.2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}

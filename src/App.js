@@ -1,5 +1,11 @@
 import { useState } from 'react';
+import './css/setup.css';
+import './css/typography.css';
 import './App.css';
+import './css/form.css';
+import './css/tabs.css';
+import './css/footer.css';
+import './css/mediaQueries.css';
 import { ApiDataContext } from './Contexts/ApiDataContext';
 import Header from './components/header/Header.js'
 import Form from './components/header/Form.js';
@@ -44,10 +50,10 @@ function App() {
             />
           </Header>
           <Main race={race}>
-            <Image
+            {/* <Image
               race={race}
               userChoice={userChoice}
-            />  
+            />   */}
             <Tabs race={race} />
           </Main>
         </ApiDataContext.Provider>
