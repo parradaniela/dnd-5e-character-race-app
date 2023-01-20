@@ -12,6 +12,6 @@ Check out the live site here: https://wondrous-fudge-759bc2.netlify.app/
 
 - React useEffect, useState, useContext Hooks 
 - Use of parent components where appropriate to avoid prop drilling
-= Reusable component structure
+- Reusable component structure
 - CSS 
-- Axios calls to the Dnd 5e RESTFUL API (http://www.dnd5eapi.co/docs/#get-/api/races/-index-)
+- Axios calls to multiple endpoints of the Dnd 5e RESTFUL API (http://www.dnd5eapi.co/docs/#get-/api/races/-index-)
