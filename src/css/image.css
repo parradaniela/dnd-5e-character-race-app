@@ -1,0 +1,14 @@
+.main-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.race-image {
+    border: 10px solid var(--color-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 2%;
+}
+

@@ -1,0 +1,15 @@
+footer {
+    padding: 10px;
+    background-color: var(--color-primary);
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    color: var(--color-white);
+}
+
+a:hover, 
+a:focus {
+    color: var(--color-secondary);
+}

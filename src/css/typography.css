@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+h1, h2, h3, p, span {
+    color: var(--color-black);
+}
+
+h1 {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 4rem;
+    padding: 5%;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 6rem;
+    text-transform: capitalize;
+}
+
+h3 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h2,
+h3 {
+    font-family: 'Tangerine', cursive;
+}
+
+label {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2.5rem;
+}
+
+
+p, span {
+    font-family:'Kalam', cursive;
+    font-size: 1.6rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
