@@ -1,0 +1,102 @@
+@media (max-width: 1174px) {
+    h3 {
+        font-size: 3.5rem;
+    }
+    
+    .wrapper {
+        width: 90%;
+    }
+
+    .form .btn {
+        width: 20%;
+    }
+}
+
+@media (max-width: 1034px) {
+    /* Form */
+    .form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    select, .form .btn {
+        width: 100%;
+    }
+
+    select {
+        margin: 3% 0;
+        padding: 10px;
+    }
+    /* Tabs */
+    .btn-tab {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (max-width: 784px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+    
+    /* Form */
+    select, .form .btn {
+        width: 95%;
+    }
+
+    /* Main */
+    main {
+        padding: 0 2%;
+    }
+    
+    .main-flex-container {
+        flex-direction: column;
+    }
+
+    .race-image {
+        margin-top: 2%;
+    }
+}
+
+@media (max-width: 705px) {
+    h3 {
+        font-size: 2.8rem;
+    }
+    
+    /* Tabs */
+    .tab-headings {
+        flex-direction: column;
+    }
+
+    .tab-headings li:last-child {
+        margin-bottom: 10px;
+    }
+
+    .no-results {
+        text-align: center;
+    }
+}
+
+@media (max-width: 590px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    .wrapper {
+        width: 95%;
+    }
+
+    /* Form */
+    select, .form .btn {
+        width: 100%;
+    }
+}

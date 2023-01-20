@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AccordionItem from './AccordionItem';
 
-const Trait = ({url}) => {
+const Trait = ({url, index}) => {
     const [traitResponse, setTraitResponse] = useState({
         desc: [], 
         name: ''
@@ -22,8 +23,11 @@ const Trait = ({url}) => {
 
     return (
         <>
-            <h3>{traitResponse.name}</h3>
-            <p>{traitResponse.desc}</p>
+            <AccordionItem
+                heading={traitResponse.name}
+                text={traitResponse.desc}
+                index={index}
+            />
         </>
     )
 }
