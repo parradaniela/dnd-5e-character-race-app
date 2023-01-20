@@ -1,4 +1,4 @@
-import Image from "./top/Image";
+import Image from "./Image";
 
 const Main = ({ race, children }) => {
     return(
