@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import './css/setup.css';
-import './css/typography.css';
 import './App.css';
+import './css/setup.css';
+import './css/strippingStyles.css';
+import './css/typography.css';
 import './css/form.css';
 import './css/tabs.css';
+import './css/accordion.css';
 import './css/footer.css';
 import './css/mediaQueries.css';
 import { ApiDataContext } from './Contexts/ApiDataContext';

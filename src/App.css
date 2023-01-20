@@ -1,20 +1,6 @@
 html {
   font-size: 125%;
 }
-/* Stripping styles */
-h1, h2, h3, p, form, select, option, button, ul {
-  margin: 0; 
-  padding: 0;
-  transition: all .3s;
-}
-
-li {
-  list-style-type: none;
-}
-
-button, input {
-  border: none;
-}
 
 a {
   text-decoration: none; 
@@ -28,15 +14,17 @@ img {
 }
 /* General styles */
 body {
-  background: url('./lukasz-szmigiel-jFCViYFYcus-unsplash.jpg') no-repeat fixed center;
+  background: url('./assets/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg') no-repeat fixed center;
 }
 
 header {
   width: 100%;
+  min-height: 30vh;
 }
 
 main {
   padding: 0 5% 5%;
+  width: 100%;
 }
 
 .wrapper {
@@ -64,79 +52,4 @@ main {
 .race-image {
   width: 30%;
   margin: 0 auto;
-}
-/* Results section */
-
-.tabs {
-  background-color: red;
-}
-
-.active-tabs {
-  background-color: blue;
-}
-
-.content {
-  display: none;
-}
-
-.active-content {
-  display: block;
-}
-
-
-.results-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.results-top-info {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.results-bottom {
-  display: flex;
-}
-
-.results ul {
-  flex-basis: 70%;
-}
-
-.results li {
-  display: flex;
-  flex-direction: column;
-}
-
-.results li:not(:last-child) {
-  margin-bottom: 5px;
-}
-
-.list-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-transform: capitalize;
-  background-color: rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-h3, 
-.list-details p,
-span {
-  padding: 10px 20px;
-}
-
-.list-details {
-  background-color: rgba(0, 0, 0, 0.1);
-  max-height: 0;
-  overflow: hidden;
-  transition: all .5s cubic-bezier(0, 1, 0, 1)
-}
-
-.list-details.show {
-  height: auto;
-  max-height: 9999px;
-  transition: all .5s cubic-bezier(1, 0, 1, 0);
 }

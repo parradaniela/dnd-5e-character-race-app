@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import AccordionItem from './AccordionItem';
+import AccordionItem from '../accordions/AccordionItem';
 
 const Subrace = ({url, index}) => {
     const [apiResponse, setApiResponse] = useState({

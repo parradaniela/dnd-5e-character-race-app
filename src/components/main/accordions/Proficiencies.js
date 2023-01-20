@@ -13,7 +13,7 @@ const Proficiencies = () => {
                         <li key={index}>
                             <Proficiency url={url} index={index} />
                         </li>)
-                : <h3>This race does not have any additional proficiencies</h3>
+                : <h3 className="no-results">This race does not have any additional proficiencies</h3>
             }   
         </ul>
     )

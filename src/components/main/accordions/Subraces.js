@@ -13,7 +13,7 @@ const Subraces = () => {
                         <li key={index}>
                             <Subrace url={url} index={index} />
                         </li>)
-                : <h3>This race does not have any subraces</h3>
+                : <h3 className="no-results">This race does not have any subraces</h3>
             }   
         </ul>
     )

@@ -1,0 +1,32 @@
+/* Tab headings */
+
+.tab-headings {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.tab-headings li {
+    flex-grow: 1;
+}
+
+.btn-tab {
+    width: 100%;
+    font-size: 1.6rem;
+    border-radius: 0;
+}
+
+/* Tab contents */
+.content {
+    display: none;
+}
+
+.active-content {
+    display: block;
+}
+
+.tabs-content {
+    width: 100%;
+    min-height: 40vh;
+}
+

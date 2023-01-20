@@ -13,7 +13,7 @@ const Traits = () => {
                         <li key={index}>
                             <Trait url={url} index={index} />
                         </li>)
-                : <h3>This race does not have any additional traits</h3>
+                : <h3 className="no-results">This race does not have any additional traits</h3>
             }   
         </ul>
     )
