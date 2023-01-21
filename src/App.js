@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './css/variables.css';
 import './css/setup.css';
+import './css/animations.css';
 import './css/global.css';
 import './css/strippingStyles.css';
 import './css/typography.css';

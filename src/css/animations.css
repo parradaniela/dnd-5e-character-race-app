@@ -1,0 +1,17 @@
+main,
+.details,
+.main-flex-container {
+    animation: move-down .5s ease-in-out;
+}
+
+@keyframes move-down {
+    0% {
+        opacity: 0; 
+        transition: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transition: translateY(0);
+    }
+}
