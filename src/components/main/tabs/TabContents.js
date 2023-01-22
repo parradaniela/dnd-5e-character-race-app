@@ -11,7 +11,9 @@ const TabContents = ({ toggleActive }) => {
         <div className="tabs-content">
             {
                         tabComponents.map((component, i) => 
-                            <div className={
+                            <div
+                                key={i}
+                                className={
                                 toggleActive === i
                                 ? "content active-content"
                                 : "content"

@@ -43,7 +43,7 @@
     h2 {
         font-size: 5rem;
     }
-    
+
     /* Form */
     select, .form .btn {
         width: 95%;
@@ -54,18 +54,32 @@
         padding: 0 2%;
     }
     
-    .main-flex-container {
-        flex-direction: column;
-    }
 
     .race-image {
-        margin-top: 2%;
+        width: 20%;
+        border-width: 5px;
     }
 }
 
 @media (max-width: 705px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
     h3 {
         font-size: 2.8rem;
+    }
+
+    p, span {
+        font-size: 1.3rem
+    }
+    /* Form */
+    .btn {
+        font-size: 1.1rem;
     }
     
     /* Tabs */
@@ -83,12 +97,21 @@
 }
 
 @media (max-width: 590px) {
-    h1 {
-        font-size: 2.5rem;
+    h1,
+    label {
+        font-size: 1.8rem;
     }
 
     h2 {
-        font-size: 4rem;
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p, span {
+        font-size: 1.2rem;
     }
 
     .wrapper {
@@ -98,5 +121,9 @@
     /* Form */
     select, .form .btn {
         width: 100%;
+    }
+    /* Image */
+    .race-image {
+        border-width: 2px;
     }
 }
