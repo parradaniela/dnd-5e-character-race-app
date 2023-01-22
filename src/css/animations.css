@@ -1,6 +1,7 @@
 main,
 .details,
-.main-flex-container {
+.main-flex-container,
+.active-content {
     animation: move-down .5s ease-in-out;
 }
 

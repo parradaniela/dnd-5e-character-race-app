@@ -6,6 +6,7 @@ const TabHeadings = ({toggleActive, toggleTab}) => {
             {
                 tabHeadings.map((heading, i) => 
                     <li
+                        key={i}
                         className={
                         toggleActive === i
                         ? "tabs active-tabs"

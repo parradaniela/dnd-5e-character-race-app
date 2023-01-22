@@ -1,7 +1,10 @@
 :root {
     --color-primary: #30322B;
-    --color-secondary: #505e20;
-    --color-tertiary: #c9ab6a;
+    --color-secondary: #476074;
+    --color-tertiary: #b09f79;
     --color-white: white;
     --color-black: black;
+    /* Variables used in body background */
+    --size: 50px; 
+    --gradient: #0000 83%,#b09f79 85% 99%,#0000 101%;
 }

@@ -11,7 +11,7 @@ const General = () => {
         <ul>
             {
                 accordionEntriesArray.map(([heading, text], index) => 
-                    <li>
+                    <li key={index}>
                         <AccordionItem
                             heading={heading}
                             text={text}

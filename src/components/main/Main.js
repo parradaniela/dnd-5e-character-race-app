@@ -12,7 +12,7 @@ const Main = ({ race, children }) => {
                         </div>
                             {children}
                         </>
-                    : <p class="summary">Select a race from the dropdown to view some of their characteristics from the 5th Edition of Dungeons and Dragons!</p>
+                    : <p className="summary">Select a race from the dropdown to view some of their characteristics from the 5th Edition of Dungeons and Dragons!</p>
                 }
         </main>
     )

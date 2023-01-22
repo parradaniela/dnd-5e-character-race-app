@@ -17,8 +17,17 @@ img {
     object-fit: cover;
 }
   /* General styles */
+
 body {
-    background: url('../assets/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg') no-repeat fixed center;
+    /* CSS background credit to Temani Afif's CSS only radial pattern codepen: https://codepen.io/t_afif/pen/YzaoqVV */
+    background-color: var(--color-secondary);
+    background: 
+    radial-gradient(27% 29% at right, var(--gradient)) calc(var(--size)/ 2) var(--size),
+    radial-gradient(27% 29% at left, var(--gradient)) calc(var(--size)/-2) var(--size),
+    radial-gradient(29% 27% at top, var(--gradient)) 0 calc(var(--size)/ 2),
+    radial-gradient(29% 27% at bottom, var(--gradient)) 0 calc(var(--size)/-2)
+    var(--color-secondary);
+    background-size: calc(2*var(--size)) calc(2*var(--size));
 }
 
 header {
@@ -43,7 +52,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(201, 171, 106, .8);
+    background-color: var(--color-tertiary);
     box-shadow: 
         rgba(0, 0, 0, 0.25) 0px 54px 55px, 
         rgba(0, 0, 0, 0.12) 0px -12px 30px, 
