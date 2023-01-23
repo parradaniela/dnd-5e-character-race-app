@@ -6,14 +6,19 @@
     gap: 5px;
 }
 
-.tab-headings li {
+.tabs {
     flex-grow: 1;
 }
+
 
 .btn-tab {
     width: 100%;
     font-size: 1.6rem;
     border-radius: 0;
+}
+
+.active-tabs .btn-tab {
+    background-color: var(--color-secondary);
 }
 
 /* Tab contents */
