@@ -5,12 +5,11 @@ import { ApiDataContext } from "../../Contexts/ApiDataContext";
 const Form = ({ userChoice, setUserChoice }) => {
 
     const [selectOptions, setSelectOptions] = useState([]);
-    const {setAccordionData, setTraitsArray, setSubracesArray, setProficienciesArray, setRace} = useContext(ApiDataContext)
-      // API call attached to a submit event on the Form.js component, that calls a specific race's endpoint and updates a number of states
+    const { apiRacesURL, setAccordionData, setTraitsArray,setSubracesArray, setProficienciesArray, setRace } = useContext(ApiDataContext)
     
-    const generalDataApiCall = (endpoint) => {
+    const generalDataApiCall = (userChoice) => {
         axios({
-            url: `https://www.dnd5eapi.co/api/races/${endpoint}`,
+            url: `${apiRacesURL}${userChoice}`,
             method: "GET",
             dataResponse: "json"
         }).then((response) => {
@@ -18,50 +17,36 @@ const Form = ({ userChoice, setUserChoice }) => {
                 age: response.data.age,
                 alignment: response.data.alignment,
                 size: response.data.size_description,
-                language: response.data.language_desc 
+                language: response.data.language_desc
             })
             setRace(response.data.index)
             setTraitsArray(response.data.traits)
-        })
-    }
-
-    const subracesDataApiCall = (endpoint) => {
-        axios({
-            url: `https://www.dnd5eapi.co/api/races/${endpoint}/subraces`,
-            method: "GET",
-            dataResponse: "json"
-            }).then((response) => {
-                setSubracesArray(response.data.results);
-            })
-    }
-
-    const proficienciesDataApiCall = (endpoint) => {
-        axios({
-            url: `https://www.dnd5eapi.co/api/races/${endpoint}/proficiencies`,
-            method: "GET",
-            dataResponse: "json"
-            }).then((response) => {
-                setProficienciesArray(response.data.results);
-            })
+            setProficienciesArray(response.data.starting_proficiencies)
+            setSubracesArray(response.data.subraces)
+        }).catch(error => {
+            alert('Oops! Something went wrong!')
+            return error
+        });
     }
     
     const handleFormSubmit = (e) => {
         e.preventDefault();
         generalDataApiCall(userChoice)
-        subracesDataApiCall(userChoice)
-        proficienciesDataApiCall(userChoice)
     }
         
-        // FIrst API call, on App.js component mount, to get the array of races that will populate the Select element in the Form's JSX
+    // FIrst API call, on App.js component mount, to get the array of races that will populate the Select element in the Form's JSX
     useEffect(() => {
         axios({
-            url: "https://www.dnd5eapi.co/api/races/",
+            url: apiRacesURL,
             method: "GET",
             dataResponse: "json"
         }).then((response) => { 
             setSelectOptions(response.data.results);
+        }).catch(error => {
+            alert('Oops! Something went wrong!')
+            return error
         });
-    }, [])
+    }, [apiRacesURL])
 
     return (
         <>
