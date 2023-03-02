@@ -19,44 +19,46 @@ import Tabs from './components/main/tabs/Tabs';
 import Footer from './components/Footer.js';
 
 function App() {
-  
+  const apiBaseURL = "https://www.dnd5eapi.co";
+  const apiRacesURL = "https://www.dnd5eapi.co/api/races/";
   // Setting states
   const [userChoice, setUserChoice] = useState('');
-  
   const [accordionData, setAccordionData] = useState({});
   const [race, setRace] = useState('');
   const [traitsArray, setTraitsArray] = useState([]);
-  const [subracesArray, setSubracesArray] = useState([])
-  const [proficienciesArray, setProficienciesArray] = useState([])
+  const [proficienciesArray, setProficienciesArray] = useState([]);
+  const [subracesArray, setSubracesArray] = useState([]);
 
   return (
     <div className="App">
       <div className="wrapper body-flex-center">
-        <ApiDataContext.Provider
-          value={
+          <ApiDataContext.Provider
+            value={
             {
-              accordionData,
-              traitsArray,
-              subracesArray,
-              proficienciesArray, 
-              setAccordionData,
-              setTraitsArray,
-              setSubracesArray,
-              setProficienciesArray,
-              setRace
+                apiBaseURL,
+                apiRacesURL,
+                accordionData,
+                traitsArray,
+                proficienciesArray,
+                subracesArray,
+                setAccordionData,
+                setTraitsArray,
+                setProficienciesArray,
+                setSubracesArray,
+                setRace
+              }
             }
-          }
-        >
-          <Header>
-            <Form
-              userChoice={userChoice}
-              setUserChoice={setUserChoice}
-            />
-          </Header>
-          <Main race={race}>  
-            <Tabs race={race} />
-          </Main>
-        </ApiDataContext.Provider>
+          >
+            <Header>
+              <Form
+                userChoice={userChoice}
+                setUserChoice={setUserChoice}
+              />
+            </Header>
+            <Main race={race}>  
+              <Tabs race={race} />
+            </Main>
+          </ApiDataContext.Provider>
       </div>
       <Footer />
     </div>

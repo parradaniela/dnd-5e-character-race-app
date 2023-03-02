@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { ApiDataContext } from '../../../Contexts/ApiDataContext';
 import AccordionItem from './AccordionItem';
 
-const Trait = ({url, index}) => {
+const Trait = ({ url, index }) => {
+    const { apiBaseURL } = useContext(ApiDataContext);
     const [traitResponse, setTraitResponse] = useState({
-        desc: [], 
+        desc: [],
         name: ''
-    })
+    });
 
     useEffect(() => {
         axios({
-            url: `https://www.dnd5eapi.co${url}`,
+            url: `${apiBaseURL}${url}`,
             method: 'GET',
             dataResponse: 'json'
         }).then((response) => {
@@ -18,8 +20,11 @@ const Trait = ({url, index}) => {
                 desc: response.data.desc,
                 name: response.data.name
             });
+        }).catch(error => {
+            alert('Oops! Something went wrong!')
+            return error
         });
-    }, [url])
+    }, [apiBaseURL, url])
 
     return (
         <>

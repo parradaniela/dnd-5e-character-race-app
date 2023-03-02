@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { ApiDataContext } from '../../../Contexts/ApiDataContext';
 import AccordionItem from '../accordions/AccordionItem';
 
-const Subrace = ({url, index}) => {
+const Subrace = ({ url, index }) => {
+    const { apiBaseURL } = useContext(ApiDataContext);
     const [apiResponse, setApiResponse] = useState({
         desc: [], 
         name: ''
@@ -10,7 +12,7 @@ const Subrace = ({url, index}) => {
 
     useEffect(() => {
         axios({
-            url: `https://www.dnd5eapi.co${url}`,
+            url: `${apiBaseURL}${url}`,
             method: 'GET',
             dataResponse: 'json'
         }).then((response) => {
@@ -18,8 +20,11 @@ const Subrace = ({url, index}) => {
                 desc: response.data.desc,
                 name: response.data.name
             });
+        }).catch(error => {
+            alert('Oops! Something went wrong!')
+            return error
         });
-    }, [url])
+    }, [apiBaseURL, url])
 
     return (
         <>
